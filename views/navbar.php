@@ -1,7 +1,8 @@
 <?php
    Session::init();
    $this->lang = Session::get('lang');
-    include "pdfconvertor.php";
+   $title = Session::get('title');
+   $active = Session::get('navbar_active');
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,8 @@
     <link type="text/css" rel="stylesheet" href="<?php print URL?>public/stylesheet/bootstrap/css/bootstrap-theme.min.css" >
     <link type="text/css" media="screen" rel="stylesheet" href="<?php print URL?>public/stylesheet/bootstrap/css/bootstrap.css" >
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="shortcut icon" href="<?php print URL;?>public/img/favicon.png" type="image/png">
+    <title><?php print $title; ?></title>
 </head>
 <body>
 
@@ -41,13 +44,13 @@ $lang_opt=$this->lang;
     </div>
     <div class="collapse navbar-collapse"   id="menu1">
         <ul class="nav navbar-nav">
-            <li class="active"><a style="COLOR: #ffffff" href="<?php print URL ?>index/news"><i class="glyphicon glyphicon-home"></i> <?php echo $home[$lang_opt]; ?></php></a></li>
-            <li class=""><a style="COLOR: #ffffff" href="<?php print URL ?>problem"><span class="glyphicon glyphicon-tasks"></span> <?php echo $archive[$lang_opt]; ?></a></li>
-            <li class=""><a href="/about" style="COLOR: #ffffff"><span class="glyphicon glyphicon glyphicon-globe"></span> <?php echo $contest[$lang_opt]; ?></a></li>
-            <li class=""><a href="/vacancy" style="COLOR: #ffffff"><span class="glyphicon glyphicon-blackboard"></span> <?php echo $training[$lang_opt]; ?></a></li>
-            <li class=""><a href="/vacancy" style="COLOR: #ffffff"><span class="glyphicon glyphicon-stats"></span> <?php echo $raiting[$lang_opt]; ?></a></li>
-            <li class=""><a href="/vacancy" style="COLOR: #ffffff"><span class="glyphicon glyphicon-bullhorn"></span> <?php echo $forum[$lang_opt]; ?></a></li>
-            <li class=""><a href="/vacancy" style="COLOR: #ffffff"><span class="glyphicon glyphicon-question-sign"></span> <?php echo $help[$lang_opt]; ?></a></li>
+            <li class="<?php if($active == "index") print "active" ?>"><a style="COLOR: #ffffff" href="<?php print URL ?>index/news"><i class="glyphicon glyphicon-home"></i> <?php echo $home[$lang_opt]; ?></php></a></li>
+            <li class="<?php if($active == "problem") print "active" ?>"><a style="COLOR: #ffffff" href="<?php print URL ?>problem"><span class="glyphicon glyphicon-tasks"></span> <?php echo $archive[$lang_opt]; ?></a></li>
+            <li class=""><a href="<?php print URL ?>index/contest" style="COLOR: #ffffff"><span class="glyphicon glyphicon glyphicon-globe"></span> <?php echo $contest[$lang_opt]; ?></a></li>
+            <li class=""><a href="<?php print URL ?>index/gym" style="COLOR: #ffffff"><span class="glyphicon glyphicon-blackboard"></span> <?php echo $training[$lang_opt]; ?></a></li>
+            <li class=""><a href="<?php print URL ?>index/rayting" style="COLOR: #ffffff"><span class="glyphicon glyphicon-stats"></span> <?php echo $raiting[$lang_opt]; ?></a></li>
+            <li class=""><a href="<?php print URL ?>index/form" style="COLOR: #ffffff"><span class="glyphicon glyphicon-bullhorn"></span> <?php echo $forum[$lang_opt]; ?></a></li>
+            <li class=""><a href="<?php print URL ?>index/help" style="COLOR: #ffffff"><span class="glyphicon glyphicon-question-sign"></span> <?php echo $help[$lang_opt]; ?></a></li>
         </ul>
         <?php
             if(Session::get('loggedIn')){
@@ -60,8 +63,8 @@ $lang_opt=$this->lang;
         <?php }else{
         ?>
         <ul class="nav navbar-nav navbar-right" >
-             <li><a style="COLOR: #ffffff" href="<?php print URL;?>registration"><span class="glyphicon glyphicon-user"></span> <?php echo $signUpText[$lang_opt]; ?></a></li>
-             <li><a style="COLOR: #ffffff" href="<?php print URL;?>login/"><span class="glyphicon glyphicon-log-in"></span> <?php echo $logInText[$lang_opt]; ?></a> </li>
+             <li class="<?php if($active == "reg") print "active" ?>"><a style="COLOR: #ffffff" href="<?php print URL;?>registration"><span class="glyphicon glyphicon-user"></span> <?php echo $signUpText[$lang_opt]; ?></a></li>
+             <li class="<?php if($active == "login") print "active" ?>"><a style="COLOR: #ffffff" href="<?php print URL;?>login/"><span class="glyphicon glyphicon-log-in"></span> <?php echo $logInText[$lang_opt]; ?></a> </li>
         </ul>
         <?php
         }?>

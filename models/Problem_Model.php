@@ -13,6 +13,7 @@ class Problem_Model extends Model {
         $this->lang = Session::get('lang');
     }
 
+    // Userning jami ishlagan va ishlay olmagan  masalalar ro'yxati;
     public function accepted($arg){
         $sql = "select ud.SolvedData as solveddata, ud.UnsolvedData as unsolveddata
                 from user u
@@ -23,14 +24,14 @@ class Problem_Model extends Model {
         $sth->execute();
         return $sth->fetchAll();
     }
-
+    // Shunday aydili masala bormi tekshiramiz;
     public function is_problem($arg){
         $sth = $this->db->prepare("select ID from problem where ID = '$arg'");
         $sth->execute();
         $count = $sth->rowCount();
         return $count > 0 ? true : false;
     }
-
+    // Masalalar ro'yxati agar masala id bilan kelsa shu masalani aks holda masalalar ro'yxatini chop qiladi;
     public function problems_list($arg = false){
         if($this->lang == 2){
             $lang = "_ru";

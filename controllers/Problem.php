@@ -9,19 +9,17 @@
 class Problem extends Controller{
     function __construct(){
         Session::init();
+        Session::set('navbar_active', "problem");
         parent::__construct();
-
     }
     function index(){
         if(Session::get('loggedIn')){
             $this->view->accepted = $this->model->accepted(Session::get('login'));
         }
-        Session::set('task_problem',1);
-        Session::set('task_status',1);
-        Session::set('task_standings',1);
+        Session::set('title',"Problem");
         Session::set('task_active_page','problem'); // if test active page null then active page
 
-        $this->view->page = 1;
+        $this->view->page = 1;    // problems page;
         $this->view->st_page = 1; // status page;
         $this->view->stan_page = 1;// status page;
 
@@ -56,20 +54,13 @@ class Problem extends Controller{
         Session::set('task_active_page','problem'); // this is active page
         Session::set('task_problem',$arg);         // task problem set argument page
 
-        if(Session::get('task_status') == null){
-            Session::set('task_status',1);         // if task status page null then set argument
-        }
-        if(Session::get('task_standings') == null){
-            Session::set('task_standings',1);      // if task standings page null then set argument
-        }
-
-        $this->view->page = $arg;   // problem page
-        $this->view->st_page = Session::get('task_status');     // status page
-        $this->view->stan_page = Session::get('task_standings');// standings page;
+        $this->view->page = $arg;      // problem page
+        $this->view->st_page = 1;      // status page
+        $this->view->stan_page = 1;   // standings page;
 
         $this->view->problems_list = $this->model->problems_list($this->view->page);             // problems
-        $this->view->status_list = $this->model->status_list($this->view->st_page); // status
-        $this->view->standings_list = $this->model->standings_list($this->view->stan_page); // standings
+        $this->view->status_list = $this->model->status_list(1); // status
+        $this->view->standings_list = $this->model->standings_list(1); // standings
 
         if($this->view->problems_list == null){
             $this->error("Requested page is not exists");
@@ -93,21 +84,13 @@ class Problem extends Controller{
         Session::set('task_active_page','status'); // this is active page
         Session::set('task_status',$arg);   // status page set;
 
-        if(Session::get('task_problem') == null){
-            Session::set('task_problem',1);      // if task standings page null then set argument
-        }
-        if(Session::get('task_standings') == null){
-            Session::set('task_standings',1);      // if task standings page null then set argument
-        }
-
-
-        $this->view->page = Session::get('task_problem');   // problem page
         $this->view->st_page = $arg;     // status page
-        $this->view->stan_page = Session::get('task_standings');// standings page;
+        $this->view->page = 1;   // problem page
+        $this->view->stan_page = 1;// standings page;
 
-        $this->view->problems_list = $this->model->problems_list($this->view->page);   // problems
-        $this->view->status_list = $this->model->status_list($this->view->st_page); // status
-        $this->view->standings_list = $this->model->standings_list($this->view->stan_page); // standings
+        $this->view->problems_list = $this->model->problems_list(1);   // problems
+        $this->view->status_list = $this->model->status_list($arg); // status
+        $this->view->standings_list = $this->model->standings_list(1); // standings
 
         if($this->view->status_list == null){
             $this->error("Requested page is not exists");
@@ -131,21 +114,13 @@ class Problem extends Controller{
         Session::set('task_active_page','standings'); // this is active page
         Session::set('task_standings',$arg);   // status page set;
 
-        if(Session::get('task_problem') == null){
-            Session::set('task_problem',1);      // if task standings page null then set argument
-        }
-        if(Session::get('task_status') == null){
-            Session::set('task_standings',1);      // if task standings page null then set argument
-        }
-
-
-        $this->view->page = Session::get('task_problem');   // problem page
-        $this->view->st_page = Session::get('task_status');     // status page
+        $this->view->page = 1;   // problem page
+        $this->view->st_page = 1;     // status page
         $this->view->stan_page = $arg;// standings page;
 
-        $this->view->problems_list = $this->model->problems_list($this->view->page);   // problems
-        $this->view->status_list = $this->model->status_list($this->view->st_page); // status
-        $this->view->standings_list = $this->model->standings_list($this->view->stan_page); // standings
+        $this->view->problems_list = $this->model->problems_list(1);   // problems
+        $this->view->status_list = $this->model->status_list(1); // status
+        $this->view->standings_list = $this->model->standings_list($arg); // standings
 
         if($this->view->standings_list == null){
             $this->error("Requested page is not exists");

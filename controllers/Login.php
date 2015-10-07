@@ -10,6 +10,8 @@ class Login extends Controller
 {
     function __construct(){
         Session::init();
+        Session::set('title', "Sign Up");
+        Session::set('navbar_active', "login");
         parent::__construct();
     }
 

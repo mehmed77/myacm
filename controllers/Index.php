@@ -12,6 +12,8 @@ class Index extends Controller
     function __construct(){
         parent::__construct();
         Session::init();
+        Session::set('title',"Home");
+        Session::set('navbar_active', "index");
         $this->view->lang = Session::get('lang');
     }
     public function index(){

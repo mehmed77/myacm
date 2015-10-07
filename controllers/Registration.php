@@ -9,6 +9,8 @@
 class Registration extends Controller
 {
    function __construct(){
+       Session::init();
+       Session::set('navbar_active', "Problem");
        parent::__construct();
    }
     function index(){

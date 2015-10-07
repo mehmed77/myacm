@@ -33,6 +33,7 @@ class Login_Model extends Model
         if ($count > 0) {
 //            date_default_timezone_set("Asia/Tashkent");
 //            $tm=date ("Y-m-d H:i:s", mktime (date("H"),date("i"),date("s"),date("m"),date("d"),date("Y")));
+//            print $tm."dfdffdfd";
 //            $sql = "UPDATE user SET `status`='ON',`tm`='$tm' WHERE `UID`=$id";
 //            $sth = $this->db->prepare($sql);
 //            $sth->execute();

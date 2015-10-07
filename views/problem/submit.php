@@ -12,9 +12,20 @@
 
 <div class="panel panel-default">
     <div class="panel-heading text-center">
-        Submit Soluction
+        Submit Solution
     </div>
     <div class="panel-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4 text-right7  ">
+                        sdsdsd
+                </div>
+                <div class="col-xs-8">
+                        dfdff
+                </div>
+            </div>
+        </div>
+
         <form action="http://127.0.0.1/acm/send/send_insert" method="POST">
             <h3 class="panel panel-primary">
                 &nbsp; <code class="text-warning">Problem:</code>&nbsp;&nbsp;&nbsp;&nbsp;
