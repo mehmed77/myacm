@@ -48,8 +48,8 @@
                     <tr>
                         <td class='text-center'><a href=\"#myModal\" onclick=\"task_status_result(".$value['uid'].")\" data-toggle=\"modal\">".$value['uid']."</a></td>
                         <td class='text-center visible-lg'>".$value['send_time']."</td>
-                        <td class='text-center'>".$value['login']."</td>
-                        <td class='text-center'>".$value['problem_name']."</td>
+                        <td class='text-center'><a href='".URL."profile/user/".$value['login']."'>".$value['login']."</a></td>
+                        <td class='text-center'><a href='".URL."problemset/problem/".$value['problem_id']."'>".$value['problem_name']."</a></td>
                         <td class='text-center visible-lg visible-md'>".$value['lang_id']."</td>
                         <td class='text-center visible-lg visible-md visible-sm'>".state_case($value['state'], $value['testcase'])."</td>
                     </tr>
@@ -79,21 +79,21 @@ if($this->st_page > 1){
     <nav style="margin-top: -20px;">
         <ul class="pagination">
             <li>
-                <a href="<?php print URL."problem/status/$Previous"; ?>" aria-label="Previous">
+                <a href="<?php print URL."problemset/status/$Previous"; ?>" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
             <?php
             for($i = $next; $i <= $last; $i++){
                 if($this->st_page == $i){
-                    print "<li class=\"active\"><a href=".URL."problem/status/".$i.">$i</a></li>";
+                    print "<li class=\"active\"><a href=".URL."problemset/status/".$i.">$i</a></li>";
                 }else{
-                    print "<li><a href=".URL."problem/status/".$i.">$i</a></li>";
+                    print "<li><a href=".URL."problemset/status/".$i.">$i</a></li>";
                 }
             }
             ?>
             <li>
-                <a href="<?php print URL."problem/status/".($this->st_page+1) ?>" aria-label="Next">
+                <a href="<?php print URL."problemset/status/".($this->st_page+1) ?>" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>

@@ -13,7 +13,7 @@ function task_problem_page(str){
             document.getElementById("problems").innerHTML = xmlhttp.responseText;
         }
     }
-    xmlhttp.open("GET","problem/page/"+str,true);
+    xmlhttp.open("GET","problemset/page/"+str,true);
     xmlhttp.send();
 }
 function task_submit_page(str){
@@ -24,7 +24,7 @@ function task_submit_page(str){
             document.getElementById("problem").innerHTML = xmlhttp.responseText;
         }
     }
-    xmlhttp.open("GET","problem/page/"+str,true);
+    xmlhttp.open("GET","problemset/page/"+str,true);
     xmlhttp.send();
 }
 function task_status_page(str){
@@ -35,7 +35,7 @@ function task_status_page(str){
             document.getElementById("problem").innerHTML = xmlhttp.responseText;
         }
     }
-    xmlhttp.open("GET","problem/page/"+str,true);
+    xmlhttp.open("GET","problemset/page/"+str,true);
     xmlhttp.send();
 }
 function task_standings_page(str){
@@ -46,7 +46,7 @@ function task_standings_page(str){
             document.getElementById("problem").innerHTML = xmlhttp.responseText;
         }
     }
-    xmlhttp.open("GET","problem/page/"+str,true);
+    xmlhttp.open("GET","problemset/page/"+str,true);
     xmlhttp.send();
 }
 function task_attempts_page(str){
@@ -57,7 +57,7 @@ function task_attempts_page(str){
             document.getElementById("problem").innerHTML = xmlhttp.responseText;
         }
     }
-    xmlhttp.open("GET","problem/page/"+str,true);
+    xmlhttp.open("GET","problemset/page/"+str,true);
     xmlhttp.send();
 }
 
@@ -68,7 +68,7 @@ function is_Problem(str){
             document.getElementById("isproblem").innerHTML = xmlhttp.responseText;
         }
     }
-    xmlhttp.open("GET",url+"problem/is_problem/"+str,true);
+    xmlhttp.open("GET",url+"problemset/is_problem/"+str,true);
     xmlhttp.send();
 }
 function avatar(str){
@@ -89,6 +89,6 @@ function task_status_result(id){
             document.getElementById("task_for_result_id").innerHTML = xmlhttp.responseText;
         }
     }
-    xmlhttp.open("GET",url+"problem/task_for_result_in_status/"+id,true);
+    xmlhttp.open("GET",url+"problemset/task_for_result_in_status/"+id,true);
     xmlhttp.send();
 }

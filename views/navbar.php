@@ -15,7 +15,7 @@
     <link type="text/css" media="screen" rel="stylesheet" href="<?php print URL?>public/stylesheet/bootstrap/css/bootstrap.css" >
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <link rel="shortcut icon" href="<?php print URL;?>public/img/favicon.png" type="image/png">
-    <title><?php print $title; ?></title>
+    <title><?php print $title; ?> - Coder</title>
 </head>
 <body>
 
@@ -45,7 +45,7 @@ $lang_opt=$this->lang;
     <div class="collapse navbar-collapse"   id="menu1">
         <ul class="nav navbar-nav">
             <li class="<?php if($active == "index") print "active" ?>"><a style="COLOR: #ffffff" href="<?php print URL ?>index/news"><i class="glyphicon glyphicon-home"></i> <?php echo $home[$lang_opt]; ?></php></a></li>
-            <li class="<?php if($active == "problem") print "active" ?>"><a style="COLOR: #ffffff" href="<?php print URL ?>problem"><span class="glyphicon glyphicon-tasks"></span> <?php echo $archive[$lang_opt]; ?></a></li>
+            <li class="<?php if($active == "problemset") print "active" ?>"><a style="COLOR: #ffffff" href="<?php print URL ?>problemset"><span class="glyphicon glyphicon-tasks"></span> <?php echo $archive[$lang_opt]; ?></a></li>
             <li class=""><a href="<?php print URL ?>index/contest" style="COLOR: #ffffff"><span class="glyphicon glyphicon glyphicon-globe"></span> <?php echo $contest[$lang_opt]; ?></a></li>
             <li class=""><a href="<?php print URL ?>index/gym" style="COLOR: #ffffff"><span class="glyphicon glyphicon-blackboard"></span> <?php echo $training[$lang_opt]; ?></a></li>
             <li class=""><a href="<?php print URL ?>index/rayting" style="COLOR: #ffffff"><span class="glyphicon glyphicon-stats"></span> <?php echo $raiting[$lang_opt]; ?></a></li>

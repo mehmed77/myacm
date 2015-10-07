@@ -15,7 +15,7 @@ if($this->accepted){
 ?>
 <script>
     function search_page(result){
-        location.href = '<?php print URL."problem/page/"?>'+result;
+        location.href = '<?php print URL."problemset/page/"?>'+result;
     }
 </script>
 
@@ -44,12 +44,12 @@ if($this->accepted){
         }
         print "
              <tr>
-                <td class='text-center ".$color."'>".$value['p_id']."</td>
-                <td>".$value['p_name']."</td>
+                <td class='text-center ".$color."'><a href='".URL."problemset/problem/".$value['p_id']."'>".$value['p_id']."</a></td>
+                <td><a href='".URL."problemset/problem/".$value['p_id']."'>".$value['p_name']."</a></td>
                 <td class='visible-lg visible-md'>".$value['mav_name']."</td>
                 <td class='visible-lg visible-md visible-sm text-center'>".($value['time']/1000)." sec / ".($value['memory']/1000000)." MB</td>
-                <td class='text-center ".$color."'><button class='btn btn-xs btn-primary'>&nbsp;&nbsp;&nbsp;&nbsp;<span class='glyphicon glyphicon-send'></span>&nbsp;&nbsp;&nbsp;&nbsp;</button></td>
-                <td class='visible-lg text-center'>".(intval($value['accepted']))."</td>
+                <td class='text-center ".$color."'><a href='".URL."problemset/submit/".$value['p_id']."'><button class='btn btn-xs btn-primary'>&nbsp;&nbsp;&nbsp;&nbsp;<span class='glyphicon glyphicon-send'></span>&nbsp;&nbsp;&nbsp;&nbsp;</button></a></td>
+                <td class='visible-lg text-center input-sm'><a href='".URL."problemset/status/".$value['p_id']."'>x".(intval($value['accepted']))."</a></td>
             </tr>
            ";
     }
@@ -77,21 +77,21 @@ if($this->page > 1){
     <nav  style=" margin-top: -20px">
         <ul class="pagination form-inline" >
             <li>
-                <a href="<?php print URL."problem/page/$Previous"; ?>" aria-label="Previous">
+                <a href="<?php print URL."problemset/page/$Previous"; ?>" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
             <?php
             for($i = $next; $i <= $last; $i++){
                 if($this->page == $i){
-                    print "<li class=\"active\"><a style=\"border-radius: 2px;\" href='".URL."problem/page/".$i."'; ?>$i</a></li>";
+                    print "<li class=\"active\"><a style=\"border-radius: 2px;\" href='".URL."problemset/page/".$i."'; ?>$i</a></li>";
                 }else{
-                    print "<li><a style=\"border-radius: 2px;\" href='".URL."problem/page/".$i."';>$i</a></li>";
+                    print "<li><a style=\"border-radius: 2px;\" href='".URL."problemset/page/".$i."';>$i</a></li>";
                 }
             }
             ?>
             <li>
-                <a href="<?php print URL."problem/page/".($this->page+1) ?>" aria-label="Next">
+                <a href="<?php print URL."problemset/page/".($this->page+1) ?>" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>

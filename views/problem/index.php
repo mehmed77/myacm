@@ -16,7 +16,7 @@ if($lang == null) $lang = 0;
 ?>
 
 <ul id="innerMenu" class="nav nav-tabs visible-lg visible-md visible-sm">
-    <li class="<?php if($active == "problem") print "active";?>"><a href="#problem" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span>&nbsp<?php print $archive[$lang];?></a></li>
+    <li class="<?php if($active == "problemset") print "active";?>"><a href="#problem" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span>&nbsp<?php print $archive[$lang];?></a></li>
     <li class="<?php if($active == "submit") print "active";?>"><a href="#submit" data-toggle="tab"><span class="glyphicon glyphicon-send"></span>&nbsp<?php print $submit[$lang];?></a></li>
     <li class="<?php if($active == "status") print "active";?>"><a href="#status" data-toggle="tab"><span class="glyphicon glyphicon-hourglass"></span>&nbsp<?php print $status[$lang];?></a></li>
     <li class="<?php if($active == "standings") print "active";?>"><a href="#standings" data-toggle="tab"><span class="glyphicon glyphicon-flag"></span>&nbsp<?php print $standings[$lang];?></a></li>
@@ -24,7 +24,7 @@ if($lang == null) $lang = 0;
 </ul>
 
 <ul id="innerMenu" class="nav nav-tabs visible-xs">
-    <li class="<?php if($active == "problem") print "active";?>"><a href="#problem" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span>&nbsp</a></li>
+    <li class="<?php if($active == "problemset") print "active";?>"><a href="#problem" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span>&nbsp</a></li>
     <li class="<?php if($active == "submit") print "active";?>"><a href="#submit" data-toggle="tab"><span class="glyphicon glyphicon-send"></span>&nbsp</a></li>
     <li class="<?php if($active == "status") print "active";?>"><a href="#status" data-toggle="tab"><span class="glyphicon glyphicon-hourglass"></span>&nbsp</a></li>
     <li class="<?php if($active == "standings") print "active";?>"><a href="#standings" data-toggle="tab"><span class="glyphicon glyphicon-flag"></span>&nbsp</a></li>
@@ -32,11 +32,11 @@ if($lang == null) $lang = 0;
 </ul>
 
 <div id="innerContent" class="tab-content">
-    <div class="tab-pane fade <?php if($active == "problem") print "in active";?>" id="problem">
+    <div class="tab-pane fade <?php if($active == "problemset") print "in active";?>" id="problem">
         <?php include "problems.php"; ?>
     </div>
     <div class="tab-pane fade <?php if($active == "submit") print "in active";?>" id="submit">
-        <?php include "submit.php"; ?>
+        <?php include "submit1.php"; ?>
     </div>
     <div class="tab-pane fade <?php if($active == "status") print "in active";?>" id="status">
         <?php include "status.php"; ?>
