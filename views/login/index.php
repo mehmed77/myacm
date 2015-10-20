@@ -12,7 +12,7 @@
 </script>
 
 <form action="<?php print URL; ?>login/run" method="POST">
-    <div class="list-group col-lg-4 col-md-4 col-sm-6 col-xs-8 col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-2" >
+    <div class="list-group col-lg-4 col-md-4 col-sm-6 col-xs-10 col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-1" >
         <a class="list-group-item active text-center">
             Your Login and Password
         </a>

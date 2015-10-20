@@ -42,7 +42,7 @@ class Login_Model extends Model
             Session::set('login',$login);
             Session::set('loggedIn', true);
             Session::set('type', $type);
-            header('location: ../problem');
+            header('location: ../problemset');
         } else {
             header('location: ../index');
         }

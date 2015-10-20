@@ -7,6 +7,8 @@
  * Time: 16:14
  */
 class Problemset extends Controller{
+    public $problem_one = false;
+
     function __construct(){
         Session::init();
         Session::set('navbar_active', "problemset");
@@ -17,13 +19,21 @@ class Problemset extends Controller{
             $this->view->accepted = $this->model->accepted(Session::get('login'));
         }
         Session::set('title',"Problemset");
-        Session::set('task_active_page','problemset'); // if test active page null then active page
+        if($this->problem_one){
+            $this->view->page = Session::get('task_problem');    // problems page;
+            $this->view->problems_list = $this->model->problems_list($this->view->page);  // problem list
+            Session::set('task_active_page','problem_one'); //problem_one page active;
+        }else{
+            Session::set('task_problem',1);
+            $this->view->problems_list = $this->model->problems_list(1);  // problem list
+            Session::set('task_active_page','problemset'); // if test active page null then active page
+        }
 
-        $this->view->page = 1;    // problems page;
+
         $this->view->st_page = 1; // status page;
         $this->view->stan_page = 1;// status page;
 
-        $this->view->problems_list = $this->model->problems_list(1);  // problem list
+
         $this->view->status_list = $this->model->status_list(1); // status list
         $this->view->standings_list = $this->model->standings_list(1); // status list
 
@@ -68,13 +78,17 @@ class Problemset extends Controller{
         }
         $this->view->render("problem/index");
     }
-
+   // Problem one;
     function problem($arg=false){
-        if(!Session::get('loggedIn')){
-            header("Location: ".URL."login");
-            exit;
+        $this->view->problem_one = $this->model->problem_one($arg);
+        if($this->view->problem_one == null){
+            $this->error("Bunday Masala mavjud emas");
+            exit(0);
         }
-        $this->view->problem_one = $this->model->problem_one();
+        $this->view->problem_id = $arg;
+        $this->problem_one = true;
+        $this->index();
+        //$this->view->render("problem/problem");
     }
 
     function status($arg = false){

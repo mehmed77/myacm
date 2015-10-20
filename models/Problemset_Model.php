@@ -31,6 +31,17 @@ class Problemset_Model extends Model {
         $count = $sth->rowCount();
         return $count > 0 ? true : false;
     }
+    // Bitta masalani ochib berish funksiyasi;
+    public function problem_one($arg = false){
+        if(!$this->is_problem($arg)){
+            return null;
+        }
+        $sth = $this->db->prepare("select * from problem where ID = '$arg'");
+        $sth->execute();
+        return $sth->fetchAll();
+    }
+
+
     // Masalalar ro'yxati agar masala id bilan kelsa shu masalani aks holda masalalar ro'yxatini chop qiladi;
     public function problems_list($arg = false){
         if($this->lang == 2){
